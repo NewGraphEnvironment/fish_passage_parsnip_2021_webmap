@@ -44,44 +44,12 @@
       "minzoom": 7,
       "maxzoom": 19
     },
-    "barriers_definite_wct": {
+    "crossings": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.definitebarriers_wct/{z}/{x}/{y}.pbf"
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf"
       ],
-      "minzoom": 8,
-      "maxzoom": 19
-    },
-    "barriers_definite_steelhead": {
-      "type": "vector",
-      "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.definitebarriers_steelhead/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 8,
-      "maxzoom": 19
-    },
-    "barriers_definite_salmon": {
-      "type": "vector",
-      "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.definitebarriers_salmon/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 8,
-      "maxzoom": 19
-    },
-    "barriers_anthropogenic": {
-      "type": "vector",
-      "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.barriers_anthropogenic/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 8,
-      "maxzoom": 19
-    },
-    "waterfalls": {
-      "type": "vector",
-      "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.falls_events_sp/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 8,
+      "minzoom": 9,
       "maxzoom": 19
     },
     "watershed_groups": {
@@ -93,7 +61,6 @@
       "maxzoom": 19
     }
   },
-  "sprite": "https://www.hillcrestgeo.ca/projects/cwf_wcrp/maki_default",
   "glyphs": "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -421,133 +388,28 @@
       }
     },
     {
-    "id": "barriers-definite-salmon",
+    "id": "crossings",
     "type": "circle",
-    "source": "barriers_definite_salmon",
-    "source-layer": "bcfishpass.definitebarriers_salmon",
-    "paint": {
-      "circle-color": "#e6e6e6",
-      "circle-opacity": 0.75,
-      "circle-stroke-width": 1,
-      "circle-stroke-opacity": 0.75,
-      "circle-radius": [
-        "interpolate",
-        ["linear"],
-        ["get", "total_network_km"],
-          0,
-          2.5,
-          10,
-          4,
-          20,
-          6,
-          50,
-          7.5,
-          100,
-          10
-      ]
-      },
-    "maxzoom": 19,
-    "minzoom": 10
-    },
-    {
-    "id": "barriers-definite-steelhead",
-    "type": "circle",
-    "source": "barriers_definite_steelhead",
-    "source-layer": "bcfishpass.definitebarriers_steelhead",
-    "paint": {
-      "circle-color": "#e6e6e6",
-      "circle-opacity": 0.75,
-      "circle-stroke-width": 1,
-      "circle-stroke-opacity": 0.75,
-      "circle-radius": [
-        "interpolate",
-        ["linear"],
-        ["get", "total_network_km"],
-          0,
-          2.5,
-          10,
-          4,
-          20,
-          6,
-          50,
-          7.5,
-          100,
-          10
-      ]
-      },
-    "maxzoom": 19,
-    "minzoom": 10
-    },
-    {
-    "id": "barriers-definite-wct",
-    "type": "circle",
-    "source": "barriers_definite_wct",
-    "source-layer": "bcfishpass.definitebarriers_wct",
-    "paint": {
-      "circle-color": "#e6e6e6",
-      "circle-opacity": 0.75,
-      "circle-stroke-width": 1,
-      "circle-stroke-opacity": 0.75,
-      "circle-radius": [
-        "interpolate",
-        ["linear"],
-        ["get", "total_network_km"],
-          0,
-          2.5,
-          10,
-          4,
-          20,
-          6,
-          50,
-          7.5,
-          100,
-          10
-      ]
-      },
-    "maxzoom": 19,
-    "minzoom": 10
-    },
-    {
-    "id": "waterfalls",
-    "type": "symbol",
-    "source": "waterfalls",
-    "source-layer": "bcfishpass.falls_events_sp",
-    "maxzoom": 19,
-    "minzoom": 10,
-    "layout": {
-                "icon-image": "waterfall-11",
-                "icon-size": 1.5
-            },
-    "paint": {
-                "icon-halo-color": "rgba(0, 0, 0, 1)",
-                "icon-halo-width": 1,
-                "icon-color": "white"
-            }
-    },
-    {
-    "id": "barriers-anthopogenic-top",
-    "type": "circle",
-    "source": "barriers_anthropogenic",
-    "source-layer": "bcfishpass.barriers_anthropogenic",
-    "filter": ["any",
-        ["in", "stream_crossing_id", 123770,124420,58067,124500,57944,57408,57596,57168,57555,57476,196969],
-        ["in", "modelled_crossing_id", 1800060,1800062,1805665,1800045,1801920,1804694,1800865,1802239,1803403,1803245,1800175,1800167,1800235,6800319,6800587,24708567,6800298,6800077,6800520,6801654,6800240,11301479,11304548,11303928,11304583,11303754,11305086],
-        ["in", "dam_id", 243]
+    "source": "crossings",
+    "source-layer": "bcfishpass.crossings",
+    "filter": ["all",
+          ["in", "watershed_group_code", "BULK", "HORS", "LNIC", "ELKR", "ADMS", "LNTH"],
+          ["in", "accessibility_model_steelhead", "ACCESSIBLE", "POTENTIALLY ACCESSIBLE", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM"]
       ],
     "paint": {
       "circle-color": "#ff5f37",
       "circle-opacity": 1,
       "circle-stroke-width": 1,
       "circle-stroke-opacity": 0.75,
-      "circle-radius": 7
+      "circle-radius": 5
       }
     },
 
     {
-    "id": "barriers-anthropogenic-top-label",
+    "id": "crossings-label",
     "type": "symbol",
-    "source": "barriers_anthropogenic",
-    "source-layer": "bcfishpass.barriers_anthropogenic",
+    "source": "crossings",
+    "source-layer": "bcfishpass.crossings",
     "maxzoom": 16,
     "filter": ["any",
         ["in", "stream_crossing_id", 123770,124420,58067,124500,57944,57408,57596,57168,57555,57476,196969],

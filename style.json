@@ -49,7 +49,7 @@
       "tiles": [
         "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf"
       ],
-      "minzoom": 9,
+      "minzoom": 7,
       "maxzoom": 19
     },
     "watershed_groups": {
@@ -388,16 +388,28 @@
       }
     },
     {
-    "id": "crossings",
+    "id": "crossings-pscis",
     "type": "circle",
     "source": "crossings",
     "source-layer": "bcfishpass.crossings",
-    "filter": ["all",
-          ["in", "watershed_group_code", "BULK", "HORS", "LNIC", "ELKR", "ADMS", "LNTH"],
-          ["in", "accessibility_model_steelhead", "ACCESSIBLE", "POTENTIALLY ACCESSIBLE", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM"]
-      ],
+    "filter": ["==", "crossing_source", "PSCIS"],
+    "minzoom": 7,
     "paint": {
-      "circle-color": "#ff5f37",
+      "circle-color": [
+            "match",
+            ["get", "barrier_status"],
+            "BARRIER",
+            "#ff5f37",
+            "POTENTIAL",
+            "#fce82c",
+            "PASSABLE",
+            "#b2df8a",
+            "UNKNOWN",
+            "#aaaaaa",
+            "#aaaaaa"
+            ],
+
+
       "circle-opacity": 1,
       "circle-stroke-width": 1,
       "circle-stroke-opacity": 0.75,

@@ -44,10 +44,10 @@
       "minzoom": 7,
       "maxzoom": 19
     },
-    "crossings": {
+    "crossings-pscis-assessments": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf"
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_assessment_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -388,11 +388,10 @@
       }
     },
     {
-    "id": "crossings-pscis",
+    "id": "crossings-pscis-assessments",
     "type": "circle",
-    "source": "crossings",
-    "source-layer": "bcfishpass.crossings",
-    "filter": ["==", "crossing_source", "PSCIS"],
+    "source": "crossings-pscis-assessments",
+    "source-layer": "bcfishpass.crossings_pscis_assessment_vw",
     "minzoom": 7,
     "paint": {
       "circle-color": [
@@ -408,8 +407,6 @@
             "#aaaaaa",
             "#aaaaaa"
             ],
-
-
       "circle-opacity": 1,
       "circle-stroke-width": 1,
       "circle-stroke-opacity": 0.75,
@@ -420,8 +417,8 @@
     {
     "id": "crossings-label",
     "type": "symbol",
-    "source": "crossings",
-    "source-layer": "bcfishpass.crossings",
+    "source": "crossings-pscis-assessments",
+    "source-layer": "bcfishpass.crossings_pscis_assessment_vw",
     "maxzoom": 16,
     "filter": ["any",
         ["in", "stream_crossing_id", 123770,124420,58067,124500,57944,57408,57596,57168,57555,57476,196969],

@@ -61,6 +61,15 @@ background: #3074a4;
 
 <script>
 
+// Utility to convert feature properties into html
+function featureHtml(f) {
+  var h = "";
+  var p = f.properties;
+  for (var k in p) {
+    h += "<b>" + k + ":</b> " + p[k] + "<br/>";
+  }
+  return "<p>" + h + "</p>";
+};
 
 var map = new mapboxgl.Map({
 container: 'map',
@@ -71,25 +80,24 @@ style: 'style.json',
 
 map.addControl(new mapboxgl.NavigationControl());
 
-
 map.on('load', function () {
 
     // When a click event occurs on a feature in the crossings layer, open a popup at the
     // location of the click, with description HTML from its properties.
-    map.on('click', 'crossings', function (e) {
+    map.on('click', 'crossings-pscis-assessments', function (e) {
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)
-    .setHTML(e.features[0].properties.total_network_km)
+    .setHTML(featureHtml(e.features[0]))
     .addTo(map);
     });
 
     // Change the cursor to a pointer when the mouse is over the states layer.
-    map.on('mouseenter', 'crossings', function () {
+    map.on('mouseenter', 'crossings-pscis-assessments', function () {
     map.getCanvas().style.cursor = 'pointer';
     });
 
     // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'crossings', function () {
+    map.on('mouseleave', 'crossings-pscis-assessments', function () {
     map.getCanvas().style.cursor = '';
     });
 

@@ -55,7 +55,7 @@
     "crossings": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossings_id,modelled_crossing_id,crossing_source,barrier_status,transport_line_structured_name_1,ften_client_name,rail_track_name,rail_owner_name,dam_name,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic,watershed_group_code,accessibility_model_steelhead,accessibility_model_salmon,accessibility_model_wct"
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossing_id,stream_crossing_id,modelled_crossing_id,pscis_status,crossing_source,barrier_status,transport_line_structured_name_1,ften_client_name,rail_track_name,rail_owner_name,dam_name,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic,watershed_group_code,accessibility_model_steelhead,accessibility_model_salmon,accessibility_model_wct"
       ],
       "minzoom": 8,
       "maxzoom": 19
@@ -66,6 +66,14 @@
         "https://www.hillcrestgeo.ca/pg_tileserv/whse_basemapping.fwa_watershed_groups_poly/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 5,
+      "maxzoom": 19
+    },
+    "barriers_anthropogenic": {
+      "type": "vector",
+      "tiles": [
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.barriers_anthropogenic/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 8,
       "maxzoom": 19
     }
   },
@@ -474,16 +482,22 @@
 
       },
 
-    {
-    "id": "priority-crossings-label",
+   {
+    "id": "crossing-label",
     "type": "symbol",
     "source": "crossings",
     "source-layer": "bcfishpass.crossings",
-    "maxzoom": 16,
-    "filter": ["in", "aggregated_crossings_id", 1001805665,1001800752,1001801969,1001803682,1001802760,123770,57944,1024704566,1001802044,1001802089,123446,124500,1001804694,1001800050,1001802088,197640,124420,1001805553,124487,1001805532,197658,1001801773,1001801122,197662,1001801133,197663,1001800422,1001805529,1001802106,1001802820,123776,1001800355,123445,1006800520,57292,57596,1006800319,197701,1100000243,1100001822,126511,124150,57317,1006800240,57507,1006800487,1100000814,1006800657,57168,124272,124268,1006800648,1100000763,1011302471,196997,1200000001,1011301479,1011303754,1100002544,1011302701,7885,196969,1011302203,1011304224,197694,1011304194,1011303928,1011303391,1011301739,197695,1011300844,1011301738,197681,1011300810],
+    "minzoom": 12,
+    "maxzoom": 19,
+    "filter": ["any",
+        ["in", "accessibility_model_salmon", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM","POTENTIALLY ACCESSIBLE","ACCESSIBLE"],
+        ["in", "accessibility_model_steelhead", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM","POTENTIALLY ACCESSIBLE","ACCESSIBLE"],
+        ["in", "accessibility_model_wct", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM","POTENTIALLY ACCESSIBLE","ACCESSIBLE"],
+        ["in", "crossing_source", "PSCIS"]
+    ],
     "layout": {
         "text-line-height": 1.2,
-        "text-size": {"base": 1, "stops": [[10, 11], [18, 16]]},
+        "text-size": {"base": 1, "stops": [[12, 9], [19, 18]]},
         "text-max-angle": 38,
         "symbol-spacing": 250,
         "text-padding": 2,
@@ -494,12 +508,56 @@
         "text-max-width": 7,
         "text-variable-anchor": ["bottom-right","bottom-left","top","bottom"],
         "text-radial-offset": 0.5,
-        "text-field": "aggregated_crossings_id"
+       "text-field": [
+            "match",
+            ["get", "crossing_source"],
+            "PSCIS",
+            ["get", "stream_crossing_id"],
+            "MODELLED CROSSINGS",
+            ["get", "modelled_crossing_id"],
+            "BCDAMS",
+            ["get", "dam_id"],
+            ["get", "dam_id"]
+            ]
     },
     "paint": {
         "text-color": "hsl(230, 29%, 35%)",
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1
+    },
+    "interactive": true
+  },
+
+  {
+    "id": "pscis-status-label",
+    "type": "symbol",
+    "source": "crossings",
+    "source-layer": "bcfishpass.crossings",
+    "minzoom": 13,
+    "maxzoom": 19,
+    "filter": ["==", "crossing_source", "PSCIS"],
+    "layout": {
+        "text-line-height": 1.2,
+        "text-size": {"base": 1, "stops": [[12, 9], [19, 20]]},
+        "text-max-angle": 38,
+        "symbol-spacing": 250,
+        "text-padding": 0,
+        "text-offset": [0, 0],
+        "text-font": ["Open Sans Bold"],
+        "text-rotation-alignment": "viewport",
+        "text-letter-spacing": 0.01,
+        "text-max-width": 7,
+        "text-variable-anchor": ["center"],
+        "text-justify": "center",
+        "text-radial-offset": 0.0,
+        "text-field": ["slice", ["get", "pscis_status"], 0, 1],
+        "text-ignore-placement": true,
+        "text-padding": 1
+    },
+    "paint": {
+        "text-color": "hsl(230, 29%, 35%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 0
     },
     "interactive": true
   }

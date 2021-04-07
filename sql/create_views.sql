@@ -70,3 +70,42 @@ ON c.stream_crossing_id = a.stream_crossing_id
 WHERE c.pscis_status = 'ASSESSED';
 
 CREATE INDEX ON bcfishpass.crossings_pscis_assessment_vw USING GIST (geom);
+
+-- remediations
+DROP TABLE IF EXISTS bcfishpass.crossings_pscis_remediation_vw;
+CREATE TABLE bcfishpass.crossings_pscis_remediation_vw AS
+SELECT
+  c.*,
+ r.funding_project_number,
+ r.funding_project,
+ r.project_id,
+ r.funding_source,
+ r.responsible_party_name,
+ r.consultant_name,
+ r.completion_date,
+ r.remediation_id,
+ r.external_crossing_reference,
+ r.location_confidence_ind,
+ r.stream_name,
+ r.road_name,
+ r.road_km_mark,
+ r.road_tenure,
+ r.remediation_cost,
+ r.habconf_verified_habitat_len,
+ r.remed_cost_benefit,
+ -- convert these into links here rather than messing about in javascript
+ '<a href="'||r.ecocat_url||'">LINK</a>' as ecocat_url,
+ '<a href="'||r.image_view_url||'">LINK</a>' as image_view_url,
+ r.current_pscis_status,
+ r.current_crossing_type_code,
+ r.current_crossing_type_desc,
+ r.current_crossing_subtype_code,
+ r.current_crossing_subtype_desc,
+ r.current_barrier_result_code,
+ r.current_barrier_description
+FROM bcfishpass.crossings c
+INNER JOIN whse_fish.pscis_remediation_svw r
+ON c.stream_crossing_id = r.stream_crossing_id
+WHERE c.pscis_status = 'REMEDIATED';
+
+CREATE INDEX ON bcfishpass.crossings_pscis_remediation_vw USING GIST (geom);

@@ -52,6 +52,14 @@
       "minzoom": 7,
       "maxzoom": 19
     },
+    "crossings-pscis-remediations": {
+      "type": "vector",
+      "tiles": [
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_remediation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,remediation_cost,habconf_verified_habitat_len,remed_cost_benefit,completion_date,responsible_party_name,barrier_status"
+      ],
+      "minzoom": 7,
+      "maxzoom": 19
+    },
     "crossings": {
       "type": "vector",
       "tiles": [
@@ -66,14 +74,6 @@
         "https://www.hillcrestgeo.ca/pg_tileserv/whse_basemapping.fwa_watershed_groups_poly/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 5,
-      "maxzoom": 19
-    },
-    "barriers_anthropogenic": {
-      "type": "vector",
-      "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.barriers_anthropogenic/{z}/{x}/{y}.pbf"
-      ],
-      "minzoom": 8,
       "maxzoom": 19
     }
   },
@@ -465,6 +465,41 @@
     "type": "circle",
     "source": "crossings-pscis-assessments",
     "source-layer": "bcfishpass.crossings_pscis_assessment_vw",
+    "minzoom": 7,
+    "paint": {
+      "circle-color": [
+            "match",
+            ["get", "barrier_status"],
+            "BARRIER",
+            "#ff3d37",
+            "POTENTIAL",
+            "#fce82c",
+            "PASSABLE",
+            "#b2df8a",
+            "UNKNOWN",
+            "#aaaaaa",
+            "#aaaaaa"
+            ],
+      "circle-opacity": 1,
+      "circle-stroke-width": 1,
+      "circle-stroke-opacity": 0.75,
+    "circle-radius": [
+        "interpolate", ["exponential", 2], ["zoom"],
+        7, 3,
+        10, 5,
+        14, 8,
+        16, 13,
+        18, 19,
+        19, 22
+    ]
+}
+
+      },
+{
+    "id": "crossings-pscis-remediations",
+    "type": "circle",
+    "source": "crossings-pscis-remediations",
+    "source-layer": "bcfishpass.crossings_pscis_remediation_vw",
     "minzoom": 7,
     "paint": {
       "circle-color": [

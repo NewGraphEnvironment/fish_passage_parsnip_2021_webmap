@@ -1,7 +1,7 @@
 -- assessments/confirmations/designs/remediations are all slightly different,
 -- pull data from crossings table into materialized views
 
--- currently deployed pg_tileserv does not support materialized views, just use tables for now
+-- (currently deployed pg_tileserv does not support materialized views, just use tables for now)
 -- DROP MATERIALIZED VIEW IF EXISTS bcfishpass.crossings_pscis_assessment_vw;
 -- CREATE MATERIALIZED VIEW bcfishpass.crossings_pscis_assessment_vw AS
 

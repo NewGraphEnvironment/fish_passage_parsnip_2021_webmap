@@ -104,6 +104,34 @@ map.on('load', function () {
     map.getCanvas().style.cursor = '';
     });
 
+    // CONFIRMATIONS
+    map.on('click', 'crossings-pscis-confirmations', function (e) {
+    new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(featureHtml(e.features[0]))
+    .addTo(map);
+    });
+    map.on('mouseenter', 'crossings-pscis-confirmations', function () {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'crossings-pscis-confirmations', function () {
+    map.getCanvas().style.cursor = '';
+    });
+
+    // DESIGNS
+    map.on('click', 'crossings-pscis-designs', function (e) {
+    new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(featureHtml(e.features[0]))
+    .addTo(map);
+    });
+    map.on('mouseenter', 'crossings-pscis-designs', function () {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'crossings-pscis-designs', function () {
+    map.getCanvas().style.cursor = '';
+    });
+
     // REMEDIATIONS
     map.on('click', 'crossings-pscis-remediations', function (e) {
     new mapboxgl.Popup()

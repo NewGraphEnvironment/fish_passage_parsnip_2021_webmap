@@ -52,6 +52,22 @@
       "minzoom": 7,
       "maxzoom": 19
     },
+    "crossings-pscis-confirmations": {
+      "type": "vector",
+      "tiles": [
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_habitat_confirmation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,habconf_proceed_ind,habconf_habitat_value_desc,habconf_habitat_value_rtle,habconf_verified_habitat_len,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
+      ],
+      "minzoom": 7,
+      "maxzoom": 19
+    },
+    "crossings-pscis-designs": {
+      "type": "vector",
+      "tiles": [
+        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_design_proposal_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,h.crossing_fix_code,crossing_fix_desc,proposed_diameter_or_span,estimated_design_cost,cost_benefit_calc,expiry_date,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
+      ],
+      "minzoom": 7,
+      "maxzoom": 19
+    },
     "crossings-pscis-remediations": {
       "type": "vector",
       "tiles": [
@@ -460,7 +476,7 @@
     ]
       }
     },
-    {
+{
     "id": "crossings-pscis-assessments",
     "type": "circle",
     "source": "crossings-pscis-assessments",
@@ -492,9 +508,76 @@
         18, 19,
         19, 22
     ]
-}
-
-      },
+    }
+},
+{
+    "id": "crossings-pscis-confirmations",
+    "type": "circle",
+    "source": "crossings-pscis-confirmations",
+    "source-layer": "bcfishpass.crossings_pscis_habitat_confirmation_vw",
+    "minzoom": 7,
+    "paint": {
+      "circle-color": [
+            "match",
+            ["get", "barrier_status"],
+            "BARRIER",
+            "#ff3d37",
+            "POTENTIAL",
+            "#fce82c",
+            "PASSABLE",
+            "#b2df8a",
+            "UNKNOWN",
+            "#aaaaaa",
+            "#aaaaaa"
+            ],
+      "circle-opacity": 1,
+      "circle-stroke-width": 1,
+      "circle-stroke-opacity": 0.75,
+    "circle-radius": [
+        "interpolate", ["exponential", 2], ["zoom"],
+        7, 3,
+        10, 5,
+        14, 8,
+        16, 13,
+        18, 19,
+        19, 22
+    ]
+    }
+},
+{
+    "id": "crossings-pscis-designs",
+    "type": "circle",
+    "source": "crossings-pscis-designs",
+    "source-layer": "bcfishpass.crossings_pscis_design_proposal_vw",
+    "minzoom": 7,
+    "paint": {
+      "circle-color": [
+            "match",
+            ["get", "barrier_status"],
+            "BARRIER",
+            "#ff3d37",
+            "POTENTIAL",
+            "#fce82c",
+            "PASSABLE",
+            "#b2df8a",
+            "UNKNOWN",
+            "#aaaaaa",
+            "#aaaaaa"
+            ],
+      "circle-opacity": 1,
+      "circle-stroke-width": 1,
+      "circle-stroke-opacity": 0.75,
+    "circle-radius": [
+        "interpolate", ["exponential", 2], ["zoom"],
+        7, 3,
+        10, 5,
+        14, 8,
+        16, 13,
+        18, 19,
+        19, 22
+    ]
+    }
+},
 {
     "id": "crossings-pscis-remediations",
     "type": "circle",

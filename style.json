@@ -23,7 +23,7 @@
     "private": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/whse_cadastre.pmbc_parcel_fabric_poly_svw/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/whse_cadastre.pmbc_parcel_fabric_poly_svw/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 8,
       "maxzoom": 19
@@ -31,7 +31,7 @@
     "streams": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.streams/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 8,
       "maxzoom": 19
@@ -39,7 +39,7 @@
     "streams_large": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.carto_streams_large/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.carto_streams_large/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -47,7 +47,7 @@
     "crossings-pscis-assessments": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_assessment_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings_pscis_assessment_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -55,7 +55,7 @@
     "crossings-pscis-confirmations": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_habitat_confirmation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,habconf_proceed_ind,habconf_habitat_value_desc,habconf_habitat_value_rtle,habconf_verified_habitat_len,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings_pscis_habitat_confirmation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,habconf_proceed_ind,habconf_habitat_value_desc,habconf_habitat_value_rtle,habconf_verified_habitat_len,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -63,7 +63,7 @@
     "crossings-pscis-designs": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_design_proposal_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,h.crossing_fix_code,crossing_fix_desc,proposed_diameter_or_span,estimated_design_cost,cost_benefit_calc,expiry_date,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings_pscis_design_proposal_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,barrier_status,h.crossing_fix_code,crossing_fix_desc,proposed_diameter_or_span,estimated_design_cost,cost_benefit_calc,expiry_date,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -71,7 +71,7 @@
     "crossings-pscis-remediations": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings_pscis_remediation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,remediation_cost,habconf_verified_habitat_len,remed_cost_benefit,completion_date,responsible_party_name,barrier_status"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings_pscis_remediation_vw/{z}/{x}/{y}.pbf?properties=stream_crossing_id,ecocat_url,image_view_url,remediation_cost,habconf_verified_habitat_len,remed_cost_benefit,completion_date,responsible_party_name,barrier_status"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -79,7 +79,7 @@
     "crossings": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossing_id,stream_crossing_id,modelled_crossing_id,pscis_status,crossing_source,barrier_status,transport_line_structured_name_1,ften_client_name,rail_track_name,rail_owner_name,dam_name,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic,watershed_group_code,accessibility_model_steelhead,accessibility_model_salmon,accessibility_model_wct"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossing_id,stream_crossing_id,modelled_crossing_id,pscis_status,crossing_source,barrier_status,transport_line_structured_name_1,ften_client_name,rail_track_name,rail_owner_name,dam_name,st_spawning_km,st_rearing_km,observedspp_upstr,dnstr_barriers_anthropogenic,watershed_group_code,accessibility_model_steelhead,accessibility_model_salmon,accessibility_model_wct"
       ],
       "minzoom": 8,
       "maxzoom": 19
@@ -87,7 +87,7 @@
     "watershed_groups": {
       "type": "vector",
       "tiles": [
-        "https://www.hillcrestgeo.ca/pg_tileserv/whse_basemapping.fwa_watershed_groups_poly/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/whse_basemapping.fwa_watershed_groups_poly/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 5,
       "maxzoom": 19

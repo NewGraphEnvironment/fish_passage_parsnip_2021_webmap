@@ -47,7 +47,7 @@
     "crossings": {
       "type": "vector",
       "tiles": [
-        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossing_id,crossing_source,crossing_feature_type,pscis_status,observedspp_upstr,total_slopeclass03_km,total_slopeclass05_km,total_slopeclass08_km,watershed_upstr_ha,total_lakereservoir_ha,total_wetland_ha,watershed_group_code"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.crossings/{z}/{x}/{y}.pbf?properties=aggregated_crossings_id,stream_crossing_id,modelled_crossing_id,dam_id,crossing_source,crossing_feature_type,pscis_status,barrier_status,observedspp_upstr,observedspp_dnstr,barriers_anthropogenic_dnstr_count,access_model_ch_co_sk,all_spawningrearing_km,all_spawningrearing_belowupstrbarriers_km,watershed_group_code"
       ],
       "minzoom": 5,
       "maxzoom": 19

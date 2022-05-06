@@ -245,6 +245,20 @@ map.on('load', function () {
     map.getCanvas().style.cursor = '';
     });
 
+    //streams
+    map.on('click', 'streams', function (e) {
+    new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(featureHtml(e.features[0]))
+    .addTo(map);
+    });
+    map.on('mouseenter', 'streams', function () {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'streams', function () {
+    map.getCanvas().style.cursor = '';
+    });
+
     var item = document.createElement('div');
     var groupheader = document.createElement('span');
     groupheader.className = 'legend-header'

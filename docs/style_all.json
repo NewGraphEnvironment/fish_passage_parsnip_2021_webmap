@@ -23,7 +23,7 @@
     "streams": {
       "type": "vector",
       "tiles": [
-        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams/{z}/{x}/{y}.pbf?properties=access_model_ch_co_sk,fwa_watershed_code,gnis_name,stream_order,gradient,channel_width,mad_m3s"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams/{z}/{x}/{y}.pbf?properties=access_model_ch_co_sk,fwa_watershed_code,gnis_name,stream_order,gradient,channel_width,mad_m3s,accessibility_model_salmon"
       ],
       "minzoom": 8,
       "maxzoom": 19

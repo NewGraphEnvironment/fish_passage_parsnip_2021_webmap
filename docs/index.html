@@ -91,6 +91,10 @@ font-family: 'Open Sans', sans-serif;
 
 <script>
 
+
+<div id="map"></div>
+<pre id="info"></pre>
+<script>
 //test mouse coords
 map.on('mousemove', (e) => {
     document.getElementById('info').innerHTML =
@@ -101,7 +105,7 @@ map.on('mousemove', (e) => {
     // `e.lngLat` is the longitude, latitude geographical position of the event.
     JSON.stringify(e.lngLat.wrap());
     });
-
+</script>
 
 
 // Utility to convert feature properties into html

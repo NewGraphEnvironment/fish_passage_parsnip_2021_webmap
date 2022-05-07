@@ -73,9 +73,9 @@ font-family: 'Open Sans', sans-serif;
 
 <div id="map"></div>
 <div id="menu">
-<input id="all" type="radio" name="rtoggle" value="all">
+<input id="all" type="radio" name="rtoggle" value="all" checked="checked">
 <label for="">All features/species</label>
-<input id="ch_co_sk" type="radio" name="rtoggle" value="ch_co_sk" checked="checked">
+<input id="ch_co_sk" type="radio" name="rtoggle" value="ch_co_sk">
 <label for="ch_co_sk">Chinook/Coho/Sockeye</label>
 <!--<input id="pk" type="radio" name="rtoggle" value="pk">
 <label for="pk">Pink</label>-->
@@ -245,7 +245,6 @@ map.on('load', function () {
     map.getCanvas().style.cursor = '';
     });
 
-    //streams
     map.on('click', 'streams', function (e) {
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)

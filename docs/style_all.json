@@ -86,7 +86,7 @@
       "type": "raster",
       "source": "satellite",
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "maxzoom": 19
     },

@@ -31,7 +31,7 @@
     "streams": {
       "type": "vector",
       "tiles": [
-        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams/{z}/{x}/{y}.pbf?properties=access_model_bt,fwa_watershed_code,gnis_name,stream_order,gradient,channel_width,mad_m3s,upstream_area_ha"
       ],
       "minzoom": 8,
       "maxzoom": 19

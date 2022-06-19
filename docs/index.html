@@ -75,7 +75,7 @@ font-family: 'Open Sans', sans-serif;
 <div id="menu">
 <input id="all" type="radio" name="rtoggle" value="all">
 <label for="">All features/species</label>
-<input id="ch_co_sk" type="radio" name="rtoggle" value="ch_co_sk" checked="checked">
+<input id="ch_co_sk" type="radio" name="rtoggle" value="ch_co_sk">
 <label for="ch_co_sk">Chinook/Coho/Sockeye</label>
 <!--<input id="pk" type="radio" name="rtoggle" value="pk">
 <label for="pk">Pink</label>-->
@@ -83,7 +83,7 @@ font-family: 'Open Sans', sans-serif;
 <label for="st">Steelhead</label>
 <!--<input id="wct" type="radio" name="rtoggle" value="wct">
 <label for="wct">Westslope Cutthroat Trout</label>-->
-<input id="bt" type="radio" name="rtoggle" value="bt">
+<input id="bt" type="radio" name="rtoggle" value="bt" checked="checked">
 <label for="bt">Bull Trout</label>
 </div>
 
@@ -104,8 +104,8 @@ function featureHtml(f) {
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'style_bt.json',
-    center: [-120.728285,52.195932], // starting position
-    zoom: 6 // starting zoom
+    center: [-120.095012,54.843033], // starting position
+    zoom: 10 // starting zoom
 });
 
 map.addControl(new mapboxgl.NavigationControl());

@@ -36,13 +36,21 @@
       "minzoom": 8,
       "maxzoom": 19
     },
-    "streams_large": {
+    "streams_carto_order3gt": {
       "type": "vector",
       "tiles": [
-        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.carto_streams_large/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams_carto_order3gt/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 7,
-      "maxzoom": 19
+      "maxzoom": 9
+    },
+    "streams_carto_order6gt": {
+      "type": "vector",
+      "tiles": [
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams_carto_order6gt/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 5,
+      "maxzoom": 7
     },
     "crossings": {
       "type": "vector",
@@ -72,6 +80,60 @@
         "visibility": "none"
       },
       "maxzoom": 19
+    },
+    {
+      "id": "streams-carto-order3gt",
+      "type": "line",
+      "source": "streams_carto_order3gt",
+      "source-layer": "bcfishpass.streams_carto_order3gt",
+      "filter": ["in", "access_model_bt", "ACCESSIBLE", "POTENTIALLY ACCESSIBLE", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM", "ACCESSIBLE - REMEDIATED"]
+      ,
+      "maxzoom": 10,
+      "minzoom": 8,
+      "layout": {"line-join": "round", "line-cap": "round"},
+      "paint": {
+          "line-color": [
+            "match",
+            ["get", "access_model_bt"],
+            "ACCESSIBLE",
+            "#129bdb",
+            "POTENTIALLY ACCESSIBLE",
+            "#ff9f85",
+            "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM",
+            "#ff6b6b",
+            "ACCESSIBLE - REMEDIATED",
+            "#33a02c",
+            "#ff9f85"
+            ],
+          "line-width": 2.5
+      }
+    },
+    {
+      "id": "streams-carto-order6gt",
+      "type": "line",
+      "source": "streams_carto_order6gt",
+      "source-layer": "bcfishpass.streams_carto_order6gt",
+      "filter": ["in", "access_model_bt", "ACCESSIBLE", "POTENTIALLY ACCESSIBLE", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM", "ACCESSIBLE - REMEDIATED"]
+      ,
+      "maxzoom": 8,
+      "minzoom": 6,
+      "layout": {"line-join": "round", "line-cap": "round"},
+      "paint": {
+          "line-color": [
+            "match",
+            ["get", "access_model_bt"],
+            "ACCESSIBLE",
+            "#129bdb",
+            "POTENTIALLY ACCESSIBLE",
+            "#ff9f85",
+            "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM",
+            "#ff6b6b",
+            "ACCESSIBLE - REMEDIATED",
+            "#33a02c",
+            "#ff9f85"
+            ],
+          "line-width": 2
+      }
     },
     {
       "id": "streams-steelhead-large",

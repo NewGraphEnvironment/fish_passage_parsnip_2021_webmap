@@ -39,7 +39,7 @@
     "streams_large": {
       "type": "vector",
       "tiles": [
-        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.carto_streams_large/{z}/{x}/{y}.pbf"
+        "https://tiles.hillcrestgeo.ca/bcfishpass/bcfishpass.streams_carto_order6gt/{z}/{x}/{y}.pbf"
       ],
       "minzoom": 7,
       "maxzoom": 19
@@ -277,7 +277,7 @@
       "id": "streams-bt-large",
       "type": "line",
       "source": "streams_large",
-      "source-layer": "bcfishpass.carto_streams_large",
+      "source-layer": "bcfishpass.streams_carto_order6gt",
       "filter": ["in", "access_model_bt", "ACCESSIBLE", "POTENTIALLY ACCESSIBLE", "POTENTIALLY ACCESSIBLE - PSCIS BARRIER DOWNSTREAM", "ACCESSIBLE - REMEDIATED"]
       ,
       "maxzoom": 10,
